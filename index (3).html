@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asura Key System</title>
+    <link rel="icon" type="image/png" href="https://imagizer.imageshack.com/img923/4805/ipaMfu.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Logo -->
+    <div class="logo" id="logoBtn">
+        <img src="https://imagizer.imageshack.com/img923/4805/ipaMfu.png" alt="Asura Logo">
+    </div>
+    
+    <!-- Milky Way Background -->
+    <div class="milky-way"></div>
+    <div class="milky-way-2"></div>
+    
+    <!-- Improved Sunny Background Elements -->
+    <div class="sun-doodle"></div>
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="cloud cloud-4"></div>
+    
+    <!-- Static space elements -->
+    <div class="static-planet static-planet-1"></div>
+    <div class="static-planet static-planet-2"></div>
+    <div class="static-planet static-planet-3"></div>
+    
+    <!-- Improved Sunny Doodles -->
+    <div class="sunny-doodle" style="top: 15%; left: 10%;">
+        <div class="sunglasses"></div>
+    </div>
+    <div class="sunny-doodle" style="bottom: 10%; left: 20%;">
+        <div class="palm-tree"></div>
+    </div>
+    <div class="sunny-doodle" style="bottom: 25%; right: 30%;">
+        <div class="beach-ball"></div>
+    </div>
+    
+    <!-- Improved Rocket Doodle -->
+    <div class="rocket-doodle" style="top: 20%; left: 15%;">
+        <div class="rocket-body">
+            <div class="rocket-window"></div>
+            <div class="rocket-fin-left"></div>
+            <div class="rocket-fin-right"></div>
+            <div class="rocket-flame"></div>
+        </div>
+    </div>
+    
+    <div class="rocket-doodle" style="top: 70%; left: 80%; animation-delay: 5s;">
+        <div class="rocket-body">
+            <div class="rocket-window"></div>
+            <div class="rocket-fin-left"></div>
+            <div class="rocket-fin-right"></div>
+            <div class="rocket-flame"></div>
+        </div>
+    </div>
+
+    <div class="stars" id="stars"></div>
+    
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun"></i> Sunny Theme
+    </button>
+    
+    <div class="social-buttons">
+        <a href="https://www.roblox.com/users/2526681676/profile?friendshipSourceType=PlayerSearch" class="social-btn roblox-btn" target="_blank">
+            <span class="btn-icon">R</span>
+            <span class="btn-text">Roblox Link</span>
+        </a>
+        <a href="https://discord.gg/GqVkvpKSwS" class="social-btn discord-btn" target="_blank">
+            <span class="btn-icon">D</span>
+            <span class="btn-text">Discord Server</span>
+        </a>
+    </div>
+
+    <!-- Clean Content Area -->
+    <div class="content-area">
+        <!-- Title with Icon Container -->
+        <div class="title-with-icon">
+            <img src="https://imagizer.imageshack.com/img923/4805/ipaMfu.png" alt="Asura Icon" class="title-icon">
+            <h1>Asura Key System</h1>
+        </div>
+        
+        <div class="key-container">
+            <div class="key-display" id="keyDisplay">
+                Checking for existing key...
+            </div>
+            <button class="copy-btn" id="copyBtn" title="Copy Key">
+                <i class="fas fa-copy"></i> COPY
+            </button>
+        </div>
+        
+        <div class="status-message" id="statusMessage">
+            Loading...
+        </div>
+        
+        <div class="cooldown-timer" id="cooldownTimer">
+            Next key available in: <span id="timerDisplay">01:00:00</span>
+        </div>
+        
+        <div class="auto-generation-message" id="autoGenerationMessage">
+            Key automatically generated for this session!
+        </div>
+    </div>
+
+    <div class="success-message" id="successMessage">
+        Key Copied!
+    </div>
+
+    <div class="access-message" id="accessMessage">
+        ACCESS GRANTED: Owner privileges activated!
+    </div>
+
+    <!-- Logo Popup -->
+    <div class="logo-popup" id="logoPopup">
+        <div class="popup-content">
+            <button class="close-popup" id="closePopup">&times;</button>
+            <h3>Admin Panel</h3>
+            <div class="popup-buttons">
+                <button class="popup-btn" id="website1">Website 1</button>
+                <button class="popup-btn" id="website2">Website 2</button>
+                <button class="popup-btn" id="website3">Website 3</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
