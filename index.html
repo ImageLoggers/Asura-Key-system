@@ -1168,31 +1168,38 @@
         </a>
     </div>
 
-    <!-- Clean Content Area -->
-    <div class="content-area">
+<!-- Clean Content Area -->
+<div class="content-area">
+    <!-- NEW: Title Container with Logo -->
+    <div class="title-container">
+        <div class="title-logo">
+            <img src="https://imagizer.imageshack.com/img923/4805/ipaMfu.png" alt="Asura Key System Logo">
+        </div>
         <h1>Asura Key System</h1>
-        
-        <div class="key-container">
-            <div class="key-display" id="keyDisplay">
-                Checking for existing key...
-            </div>
-            <button class="copy-btn" id="copyBtn" onclick="copyKey()" title="Copy Key">
-                <i class="fas fa-copy"></i> COPY
-            </button>
-        </div>
-        
-        <div class="status-message" id="statusMessage">
-            Loading...
-        </div>
-        
-        <div class="cooldown-timer" id="cooldownTimer">
-            Next key available in: <span id="timerDisplay">01:00:00</span>
-        </div>
-        
-        <div class="auto-generation-message" id="autoGenerationMessage">
-            Key automatically generated for this session!
-        </div>
     </div>
+    
+    <div class="key-container">
+        <div class="key-display" id="keyDisplay">
+            Checking for existing key...
+        </div>
+        <button class="copy-btn" id="copyBtn" onclick="copyKey()" title="Copy Key">
+            <i class="fas fa-copy"></i> COPY
+        </button>
+    </div>
+    
+    <div class="status-message" id="statusMessage">
+        Loading...
+    </div>
+    
+    <div class="cooldown-timer" id="cooldownTimer">
+        Next key available in: <span id="timerDisplay">01:00:00</span>
+    </div>
+    
+    <div class="auto-generation-message" id="autoGenerationMessage">
+        Key automatically generated for this session!
+    </div>
+</div>
+
 
     <div class="success-message" id="successMessage">
         Key Copied!
