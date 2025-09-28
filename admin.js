@@ -7,7 +7,8 @@ let typedText = '';
 const ADMIN_COMMANDS = {
     '/RemoveAdmin': removeAdminAccess,
     '/Remove-All-Admin': removeAllAdminAccess,
-    '/Set-Key-Valid-Cooldown-Reset': resetKeyCooldown
+    '/Set-Key-Valid-Cooldown-Reset': resetKeyCooldown,
+    '/SET-0-COOLDOWN': setZeroCooldown
 };
 
 // Initialize admin system
@@ -166,6 +167,102 @@ function resetKeyCooldown() {
             window.startCooldownTimer(60 * 60 * 1000); // Reset to 1 hour
         }
     }
+}
+
+// NEW COMMAND: SET-0-COOLDOWN
+function setZeroCooldown() {
+    if (isOwner) {
+        // Reset cooldown to zero (make key immediately valid)
+        localStorage.setItem('lastGeneratedTime', new Date().getTime());
+        
+        // Set a flag to indicate zero cooldown
+        localStorage.setItem('zeroCooldownActive', 'true');
+        
+        // Clear any existing timer
+        const cooldownTimer = document.getElementById('cooldownTimer');
+        if (cooldownTimer) {
+            cooldownTimer.style.display = 'none';
+        }
+        
+        // Update the status message
+        const statusMessage = document.getElementById('statusMessage');
+        if (statusMessage) {
+            statusMessage.textContent = 'Zero cooldown activated! Key is permanently valid.';
+        }
+        
+        // Generate a new key immediately
+        generateNewKeyAndRedirect();
+        
+        showAdminMessage('ZERO COOLDOWN ACTIVATED! New key generated and valid.', 'rgba(0, 200, 255, 0.9)');
+    }
+}
+
+// Function to generate new key and redirect to loot-link
+function generateNewKeyAndRedirect() {
+    // Generate a fresh key
+    const isSpecial = checkSpecialIP();
+    const randomPart = generateRandomString(12);
+    const specialNumbers = generateSpecialNumbers(3);
+    const newKey = `KEY-ASURA-${randomPart}-${specialNumbers}`;
+    
+    // Store the new key with current timestamp
+    localStorage.setItem('currentKey', newKey);
+    localStorage.setItem('lastGeneratedTime', new Date().getTime());
+    
+    // Update the display
+    const keyDisplay = document.getElementById('keyDisplay');
+    const copyBtn = document.getElementById('copyBtn');
+    
+    if (keyDisplay) {
+        keyDisplay.textContent = newKey;
+        keyDisplay.classList.add('key-generation-effect');
+        setTimeout(() => {
+            keyDisplay.classList.remove('key-generation-effect');
+        }, 1000);
+    }
+    
+    if (copyBtn) {
+        copyBtn.classList.add('show');
+    }
+    
+    // Redirect to loot-link after a short delay to show the new key
+    setTimeout(() => {
+        window.location.href = 'https://loot-link.com/s?M0hGE55R';
+    }, 2000);
+}
+
+// Helper function to check special IP (reuse from script.js)
+function checkSpecialIP() {
+    const specialIPs = ['210.23.161.56', '2001:4454:3a4:ca00:28c7:3c7a:a0a1:dccd'];
+    const storedIP = localStorage.getItem('userIP');
+    return storedIP && specialIPs.includes(storedIP);
+}
+
+// Helper function to generate random string (reuse from script.js)
+function generateRandomString(length) {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+}
+
+// Helper function to generate special numbers (reuse from script.js)
+function generateSpecialNumbers(count) {
+    const specialNumbers = [];
+    const primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29];
+    const fibonacci = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55];
+    
+    for (let i = 0; i < count; i++) {
+        if (Math.random() > 0.5) {
+            specialNumbers.push(primes[Math.floor(Math.random() * primes.length)]);
+        } else {
+            specialNumbers.push(fibonacci[Math.floor(Math.random() * fibonacci.length)]);
+        }
+    }
+    
+    return specialNumbers.join('');
 }
 
 function showAccessMessage() {
