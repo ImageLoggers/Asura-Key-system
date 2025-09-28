@@ -67,8 +67,6 @@ function addRandomUrlParameters() {
         
         // Update the URL without reloading the page
         window.history.replaceState({}, '', newUrl);
-        
-        console.log('Added random URL parameters:', newUrl);
     }
 }
 
@@ -130,9 +128,7 @@ function autoGenerateKey() {
     }, 1000);
     
     copyBtn.classList.add('show');
-    
-    // Show current URL in status message
-    statusMessage.textContent = `Your new key has been generated!`;
+    statusMessage.textContent = 'Your new key has been generated!';
     autoGenerationMessage.style.display = 'block';
     
     if (!isSpecial) {
