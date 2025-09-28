@@ -132,7 +132,7 @@ function autoGenerateKey() {
     copyBtn.classList.add('show');
     
     // Show current URL in status message
-    statusMessage.textContent = `Your new key has been generated! URL: ${window.location.href}`;
+    statusMessage.textContent = `Your new key has been generated!`;
     autoGenerationMessage.style.display = 'block';
     
     if (!isSpecial) {
